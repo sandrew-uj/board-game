@@ -6,7 +6,7 @@ import game.players.RandomPlayer;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) {    //function for testing
         final int n = 11, cnt = 9;
 //        final int result = new TwoPlayerGame(
 //                new HexBoard(n),

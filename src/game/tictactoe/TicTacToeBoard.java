@@ -10,8 +10,10 @@ import java.util.Map;
 import static java.lang.Math.min;
 
 class TicTacToeBoard implements Board, Position {
+    //board for tictactoe game with board m*n sizes && k (X or O) in row column or diagonal
+
     private static final Map<Cell, String> CELL_TO_STRING = Map.of(
-            Cell.E, ".",
+            Cell.E, ".",        //for empty condition
             Cell.X, "X",
             Cell.O, "0"
     );
@@ -21,7 +23,7 @@ class TicTacToeBoard implements Board, Position {
     private final int m, n, k;
     private int filledCnt;
 
-    TicTacToeBoard() {
+    TicTacToeBoard() {      //default values for m, n, k like classic tictactoe game
         this.m = 3;
         this.n = 3;
         this.k = 3;
@@ -78,7 +80,7 @@ class TicTacToeBoard implements Board, Position {
         return ++filledCnt == m * n;
     }
 
-    private boolean checkWin(Move move) {
+    private boolean checkWin(Move move) {       //win checker
         int col = move.getCol(), row = move.getRow();
         var list = new ArrayList<ArrayList<Cell>>(4);
         for (int i = 0; i < 4; i++) {
@@ -127,7 +129,7 @@ class TicTacToeBoard implements Board, Position {
         return false;
     }
 
-    public boolean isValid(final Move move) {
+    public boolean isValid(final Move move) {       //validator
         return 0 <= move.getRow() && move.getRow() < m
                 && 0 <= move.getCol() && move.getCol() < n
                 && field[move.getRow()][move.getCol()] == Cell.E
@@ -140,7 +142,7 @@ class TicTacToeBoard implements Board, Position {
     }
 
     @Override
-    public String toString() {
+    public String toString() {      //dump on console
         final StringBuilder sb = new StringBuilder("    ");
         for (int i = 1; i <= n; i++) {
             sb.append(String.format("%4d", i));

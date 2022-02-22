@@ -4,7 +4,7 @@ import game.TwoPlayerGame;
 import game.players.RandomPlayer;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) {        //tester for tictactoe game
         final int m, n, k;
         m = 6;
         n = 16;

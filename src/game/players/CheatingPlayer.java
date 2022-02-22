@@ -1,4 +1,6 @@
-package game.players;//package game.players;
+package game.players;
+
+//package game.players;
 //
 //import game.tictactoe.TicTacToeBoard;
 //import game.*;
@@ -12,7 +14,7 @@ package game.players;//package game.players;
 //    }
 //
 //    @Override
-//    public Move makeMove(Position position) {
+//    public Move makeMove(Position position) {     //cheating player can't change the results of the game by accessing board
 //        final TicTacToeBoard board = (TicTacToeBoard) position;
 //        Move first = null;
 //        for (int r = 0; r < m; r++) {

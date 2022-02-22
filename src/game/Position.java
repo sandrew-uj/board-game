@@ -1,6 +1,6 @@
 package game;
 
-public interface Position {
+public interface Position {     //position on board interface
     Cell getTurn();
 
     boolean isValid(Move move);

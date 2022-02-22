@@ -6,7 +6,11 @@ import java.util.Arrays;
 import java.util.Map;
 
 
-public class HexBoard implements Board, Position{
+public class HexBoard implements Board, Position {
+    /*
+    Board for playing in hex
+     */
+
     private static final Map<Cell, String> CELL_TO_STRING = Map.of(
             Cell.E, ".",
             Cell.X, "X",
@@ -40,7 +44,7 @@ public class HexBoard implements Board, Position{
     }
 
     @Override
-    public GameResult makeMove(Move move) {
+    public GameResult makeMove(Move move) {     //method for making move
         if (!isValid(move)) {
             return GameResult.LOOSE;
         }
@@ -58,16 +62,16 @@ public class HexBoard implements Board, Position{
         return GameResult.UNKNOWN;
     }
 
-    private boolean checkDraw() {
+    private boolean checkDraw() {   //draw checker
         return ++filledCnt == n * n;
     }
 
-    private boolean checkWin(Move move) {
+    private boolean checkWin(Move move) {   //win checker
         int col = move.getCol(), row = move.getRow();
         return checkDown(row, col, new boolean[n][n]) && checkUp(row, col, new boolean[n][n]);
     }
 
-    private boolean checkDown(int row, int col, boolean[][] isChecked) {
+    private boolean checkDown(int row, int col, boolean[][] isChecked) {    //check number of sequential X or O in down
         if (row < 0 || col < 0 || row >= n || col >= n || field[row][col] != turn || isChecked[row][col]) {
             return false;
         } else if (row == 0 && turn == Cell.X || col == 0 && turn == Cell.O) {
@@ -81,7 +85,7 @@ public class HexBoard implements Board, Position{
         }
     }
 
-    private boolean checkUp(int row, int col, boolean[][] isChecked) {
+    private boolean checkUp(int row, int col, boolean[][] isChecked) {    //check number of sequential X or O in up
         if (row < 0 || col < 0 || row >= n || col >= n || field[row][col] != turn || isChecked[row][col]) {
             return false;
         } else if (row == n - 1 && turn == Cell.X || col == n - 1 && turn == Cell.O) {
@@ -95,7 +99,7 @@ public class HexBoard implements Board, Position{
         }
     }
 
-    public boolean isValid(final Move move) {
+    public boolean isValid(final Move move) {       //validator
         return 0 <= move.getRow() && move.getRow() < n
                 && 0 <= move.getCol() && move.getCol() < n
                 && field[move.getRow()][move.getCol()] == Cell.E
@@ -108,7 +112,7 @@ public class HexBoard implements Board, Position{
     }
 
     @Override
-    public String toString() {
+    public String toString() {      //dumping in console
         final StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             sb.append("    ");

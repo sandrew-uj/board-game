@@ -4,7 +4,7 @@ import game.Move;
 import game.Player;
 import game.Position;
 
-public class SequentialPlayer implements Player {
+public class SequentialPlayer implements Player {   //player making his moves sequentially
     private final int m, n;
 
     public SequentialPlayer(int m, int n) {

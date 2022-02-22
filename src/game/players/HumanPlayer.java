@@ -7,7 +7,7 @@ import game.Position;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class HumanPlayer implements Player {
+public class HumanPlayer implements Player {        //human player in console
     private final Scanner in;
 
     public HumanPlayer(Scanner in) {

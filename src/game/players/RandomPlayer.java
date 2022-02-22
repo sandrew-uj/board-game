@@ -6,7 +6,7 @@ import game.Position;
 
 import java.util.Random;
 
-public class RandomPlayer implements Player {
+public class RandomPlayer implements Player {       //player that make random moves
     private final Random random = new Random();
     private final int m, n;
 

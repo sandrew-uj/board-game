@@ -1,6 +1,6 @@
 package game;
 
-public class RoundTournamentGame {
+public class RoundTournamentGame {      //class for round tournament
     private final Board[][] boards;
     private final Player[] players;
     private final int[][] standings;
@@ -16,9 +16,9 @@ public class RoundTournamentGame {
             for (int j = i + 1; j < players.length; j++) {
                 int result = new TwoPlayerGame(boards[i][j], players[i], players[j]).play(log);
                 switch (result) {
-                    case 1 -> standings[i][j] = 3;
-                    case 2 -> standings[j][i] = 3;
-                    case 0 -> standings[i][j] = standings[j][i] = 1;
+                    case 1 -> standings[i][j] = 3;                      //win
+                    case 2 -> standings[j][i] = 3;                      //loose
+                    case 0 -> standings[i][j] = standings[j][i] = 1;    //draw
                 }
             }
         }
@@ -36,7 +36,7 @@ public class RoundTournamentGame {
     }
 
     @Override
-    public String toString() {
+    public String toString() {              //dump table of standings on console
         var sb = new StringBuilder("  ");
         for (int i = 1; i <= players.length; i++) {
             sb.append(i).append(" ");
